@@ -1,103 +1,219 @@
-import Image from "next/image";
+"use client"
 
-export default function Home() {
+import { useState, useEffect, useRef } from "react"
+import Hero from "@/components/hero"
+import Features from "@/components/features"
+import WhyThisCourse from "@/components/nima-uchun"
+import WhoIsThisFor from "@/components/kim-uchun"
+import CourseModules from "@/components/course-module"
+import Instructor from "@/components/instructor"
+import CallToAction from "@/components/call-to"
+import Footer from "@/components/footer"
+import BookLanding from "@/components/aynan-men"
+import KursdanKeyin from "@/components/kursdan_keyin"
+import SotuvMutaxassis from "@/components/sotuv-mutaxasisi"
+import TarifRejalari from "@/components/tariflar"
+import Bonuslar from "@/components/bonus"
+
+export default function LandingPage() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState("hero")
+  const [isMobile, setIsMobile] = useState(false)
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+    
+    handleResize()
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
+  useEffect(() => {
+    if (isMobile) return
+    
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id)
+        }
+      })
+    }, observerOptions)
+
+    sectionRefs.current.forEach((section) => {
+      if (section) observer.observe(section)
+    })
+
+    return () => {
+      sectionRefs.current.forEach((section) => {
+        if (section) observer.unobserve(section)
+      })
+    }
+  }, [isMobile])
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+    setIsMenuOpen(false)
+  }
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen ">
+      {/* To'liq navbar kodi qaytarildi */}
+      <header className="sticky top-0 z-40 w-full bg-black backdrop-blur-sm">
+  <nav className="container mx-auto px-4 py-4 flex justify-between items-center"> {/* Increased py-3 to py-4 */}
+    <div className="text-white font-bold text-2xl">BEKZOD | KHANOV</div> {/* Increased text-xl to text-2xl */}
+    
+    {isMobile ? (
+      <button 
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        className="text-white focus:outline-none"
+      >
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"> {/* Increased w-6/h-6 to w-8/h-8 */}
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M4 6h16M4 12h16M4 18h16" /> {/* Increased strokeWidth from 2 to 3 */}
+        </svg>
+      </button>
+    ) : (
+      <div className="hidden md:flex space-x-8"> {/* Increased space-x-6 to space-x-8 */}
+        <button
+          onClick={() => scrollToSection("kurs-vazifasi")}
+          className={`text-white hover:text-green-400 text-lg ${ /* Added text-lg */
+            activeSection === "kurs-vazifasi" ? "text-green-400 font-semibold" : "" /* Added font-semibold */
+          }`}
+        >
+          KURS VAZIFASI
+        </button>
+        <button
+          onClick={() => scrollToSection("kim-uchun")}
+          className={`text-white hover:text-green-400 text-lg ${
+            activeSection === "kim-uchun" ? "text-green-400 font-semibold" : ""
+          }`}
+        >
+          KURS KIMLAR UCHUN
+        </button>
+        <button
+          onClick={() => scrollToSection("kurs-dasturi")}
+          className={`text-white hover:text-green-400 text-lg ${
+            activeSection === "kurs-dasturi" ? "text-green-400 font-semibold" : ""
+          }`}
+        >
+          KURS DASTURI
+        </button>
+        <button
+          onClick={() => scrollToSection("muallif")}
+          className={`text-white hover:text-green-400 text-lg ${
+            activeSection === "muallif" ? "text-green-400 font-semibold" : ""
+          }`}
+        >
+          KURS MUALLIFI
+        </button>
+        <button
+          onClick={() => scrollToSection("narx")}
+          className={`text-white hover:text-green-400 text-lg ${
+            activeSection === "narx" ? "text-green-400 font-semibold" : ""
+          }`}
+        >
+          NARXLAR
+        </button>
+      </div>
+    )}
+  </nav>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+  {/* Mobile menu - also made larger */}
+  {isMobile && isMenuOpen && (
+    <div className="md:hidden bg-black py-3"> {/* Added py-3 */}
+      <div className="px-4 pt-3 pb-4 space-y-3"> {/* Increased padding and spacing */}
+        <button
+          onClick={() => scrollToSection("kurs-vazifasi")}
+          className={`block w-full text-left px-4 py-3 text-lg text-white ${ /* Added text-lg, increased padding */
+            activeSection === "kurs-vazifasi" ? "text-green-400 font-semibold" : ""
+          }`}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          KURS VAZIFASI
+        </button>
+        <button
+          onClick={() => scrollToSection("kim-uchun")}
+          className={`block w-full text-left px-4 py-3 text-lg text-white ${
+            activeSection === "kim-uchun" ? "text-green-400 font-semibold" : ""
+          }`}
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          KURS KIMLAR UCHUN
+        </button>
+        <button
+          onClick={() => scrollToSection("kurs-dasturi")}
+          className={`block w-full text-left px-4 py-3 text-lg text-white ${
+            activeSection === "kurs-dasturi" ? "text-green-400 font-semibold" : ""
+          }`}
         >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          KURS DASTURI
+        </button>
+        <button
+          onClick={() => scrollToSection("muallif")}
+          className={`block w-full text-left px-4 py-3 text-lg text-white ${
+            activeSection === "muallif" ? "text-green-400 font-semibold" : ""
+          }`}
+        >
+          KURS MUALLIFI
+        </button>
+        <button
+          onClick={() => scrollToSection("narx")}
+          className={`block w-full text-left px-4 py-3 text-lg text-white ${
+            activeSection === "narx" ? "text-green-400 font-semibold" : ""
+          }`}
+        >
+          NARXLAR
+        </button>
+      </div>
     </div>
-  );
+  )}
+</header>
+
+      <div
+        className="min-h-screen"
+        style={{
+          backgroundImage: "url('/background.png')",
+          backgroundSize: "cover",
+          backgroundAttachment: "fixed",
+          backgroundPosition: "center",
+        }}
+      >
+        <main className={isMobile ? "" : "snap-y snap-mandatory h-screen overflow-y-scroll"}>
+          {[
+            { id: "hero", Component: Hero },
+            { id: "kurs-vazifasi", Component: Features },
+            { id: "why", Component: WhyThisCourse },
+            { id: "who", Component: BookLanding },
+            { id: "kim-uchun", Component: WhoIsThisFor },
+            { id: "kursdan-keyin", Component: KursdanKeyin },
+            { id: "kurs-dasturi", Component: CourseModules },
+            { id: "muallif", Component: Instructor },
+            { id: "narx", Component: TarifRejalari },
+            { id: "sotuv-mutaxassisi", Component: SotuvMutaxassis },
+            { id: "bonuslar", Component: Bonuslar },
+            { id: "boglanish", Component: CallToAction },
+          ].map(({ id, Component }, index) => (
+            <section
+              key={id}
+              id={id}
+              ref={(el) => { if (sectionRefs.current) sectionRefs.current[index] = el }}
+              className={isMobile ? "" : "h-screen snap-center"}
+            >
+              <Component />
+            </section>
+          ))}
+        </main>
+      </div>
+      <Footer />
+    </div>
+  )
 }

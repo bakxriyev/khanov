@@ -1,0 +1,1198 @@
+"use client"
+
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+
+export default function BookLanding() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
+  const features = [
+    {
+      icon: "/realtajriba.png",
+      title: "REAL TAJRIBALAR ASOSIDA TA'LIM.",
+    },
+    {
+      icon: "/kere.png",
+      title: "ODDIY VA TUSHUNARLI YONDASHIV – MURAKKAB NARSALARNI SODDA TUSHUNTIRAMAN.",
+    },
+    {
+      icon: "/aniq.png",
+      title: "SOTIV BO'YICHA ASOSIY KO'NIKMALARGA EGA BO'LASIZ QAYERGA QANDAY RIVOJLANISHNI BILIB OLASIZ",
+    },
+    {
+      icon: "/daftarcha.png",
+      title: "SIZ KURS YAKUNIDA ISHGA KIRISH UCHUN YO'RIQNOMAGA EGA BO'LASIZ!",
+    },
+  ];
+
+  return (
+    <div id="who" className="min-h-screen w-full relative overflow-hidden ">
+      {/* Background element */}
+      <div className="absolute left-0 top-0 bottom-0 py-16 w-72 sm:w-[400px] md:w-[600px] opacity-50 sm:opacity-100">
+        <Image 
+          src="/lampochka.png" 
+          alt="Background gear" 
+          fill 
+          className="object-contain object-left" 
+          priority
+        />
+      </div>
+
+      <div className="container mx-auto px-4 py-8 sm:py-12 md:py-16 relative z-10">
+        {/* Book Section */}
+        <div className="flex flex-col items-center py-4 md:py-8">
+          <motion.div
+            initial={{ opacity: 0, y: 50, rotate: -10 }}
+            animate={isLoaded ? { opacity: 1, y: 0, rotate: 0 } : {}}
+            transition={{
+              duration: 0.8,
+              type: "spring",
+              stiffness: 100,
+            }}
+            className="relative w-56 h-72 sm:w-72 sm:h-96 md:w-[350px] md:h-[450px] mb-8"
+          >
+            <Image 
+              src="/kitob.jpg" 
+              alt="NIMA UCHUN AYNAN MEN?" 
+              fill 
+              className="object-contain" 
+              priority 
+            />
+          </motion.div>
+
+          {/* Features Grid */}
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                className="bg-white rounded-lg shadow-lg p-4 sm:p-6 flex flex-col items-center text-center h-full"
+              >
+                <div className="relative w-14 h-14 sm:w-20 sm:h-20 mb-3">
+                  <Image 
+                    src={feature.icon || "/placeholder.svg"} 
+                    alt={feature.title} 
+                    fill 
+                    className="object-contain" 
+                  />
+                </div>
+                <h3 className="text-sm sm:text-base md:text-lg font-bold text-center">
+                  {feature.title}
+                </h3>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+'use client';
+
+import Image from 'next/image';
+
+export default function Bonuslar() {
+  return (
+    <section className="flex flex-col items-center justify-center min-h-screen p-6">
+      <h1 className="text-red-600 text-6xl font-bold text-center mb-12">BONUSLAR</h1>
+      
+      <div className="relative w-full max-w-5xl flex flex-col items-center gap-6">
+        {/* Chap tomondagi sovg'a rasmi */}
+        <div className="absolute -left-32 bottom-10 hidden lg:block">
+          <Image src="/sovga.png" alt="Gift Left" width={400} height={400} />
+        </div>
+
+        {/* Bonuslar ro'yxati */}
+        <div className="w-full flex flex-col items-center gap-6">
+          {[ 
+            "SHAXSIY TAVSIYA VA MASLAHATLAR",
+            "SAVDO BO‘YICHA PDF-QO‘LLANMALAR",
+            "REZYUME TAYYORLASH BO‘YICHA SHABLONLAR",
+            "INTERVYUGA TAYYORGARLIK BO‘YICHA SKRIPTLAR",
+            "YOPIQ TELEGRAM-GURUHGA KIRISH VA MENTORLIK",
+          ].map((text, index) => (
+            <div
+              key={index}
+              className="w-full bg-white shadow-2xl rounded-2xl p-6 text-center text-xl font-semibold flex items-center gap-4 max-w-lg border border-gray-200"
+            >
+            
+              {text}
+            </div>
+          ))}
+        </div>
+
+        {/* O'ng tomondagi sovg'a rasmi */}
+        <div className="absolute -right-32 top-10 hidden lg:block">
+          <Image src="/sovga.png" alt="Gift Right" width={400} height={400} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+"use client"
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+export default function CallToAction() {
+
+  return (
+    <section className="py-16 text-white ">
+      <div className="container mx-auto text-center px-4">
+        <motion.div
+          className="bg-gray-800 p-10 rounded-xl shadow-2xl border border-gray-700"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <motion.h2 
+            className="text-4xl font-extrabold mb-6 bg-gradient-to-r text-white bg-clip-text text-transparent"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+          >
+            Sotuv sohasida muvaffaqiyatga erishishga tayyormisiz?
+          </motion.h2>
+          <motion.p 
+            className="text-lg max-w-2xl mx-auto mb-8 text-gray-300"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+          >
+            Bugun ro'yxatdan o'ting va professional sotuv mutaxassisi bo'lish yo'lida birinchi qadamni qo'ying!
+          </motion.p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <motion.a
+              href="https://t.me/sotuvkurs_bot"
+              target="_blank"
+              className="bg-stone-300 text-black font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Kurs harid qilish
+            </motion.a>
+            <motion.a
+              href="https://t.me/sotuvkurs_bot"
+              target="_blank"
+              className="bg-stone-300 text-black font-bold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Bepul konsultatsiya olish
+            </motion.a>
+          </div>
+        </motion.div>
+      </div>
+      
+      
+    </section>
+  );
+}
+"use client"
+import React from 'react';
+import Image from 'next/image';
+
+const modullar = [
+  "SOTUVCHILIK KASBI",
+  "SAVDO ASOSLARINI TUSHUNISH – MIJOZLAR QANDAY QAROR QABUL QILADI?",
+  "SAMARALI MULOQOT – MIJOZ BILAN QANDAY GAPLASHISH, SAVOLLAR BERISH",
+  "SKRIPTLAR BILAN ISHLASH – CALL-MARKAZ VA SAVDODA TAYYOR SKRIPTLAR",
+  "MIJOZNING EHTIYOJLARINI ANIQLASH VA E'TIROZLARNI YENGISH",
+  "CRM VA IP TELEFONIYA TIZIMLARI BILAN ISHLASH (AMOCRM)",
+  "ISH TOPISH VA INTERVYUGA TAYYORGARLIK STRATEGIYALARI",
+  "STRESSGA BARDOSHLI BO'LISH VA MOTIVATSIYA"
+];
+
+const KursDasturi = () => {
+  return (
+    <div id="kurs-dasturi" className="px-4 py-16 min-h-screen w-full relative overflow-hidden rounded-xl">
+      {/* Chap tomondagi fon elementi (chap o'rtada) */}
+      <div className="absolute bottom-8  left-0 right-0 w-24 h-24 md:w-32 md:h-32 mx-auto ml-8 md:ml-16 rounded-2xl">
+        <Image 
+          src="/ptichka.png" 
+          alt="" 
+          width={128} 
+          height={128} 
+          className="object-contain opacity-70"
+          priority
+        />
+      </div>
+
+      {/* O'ng tomondagi fon elementi (o'ng o'rtada) */}
+      <div className="absolute bottom-8 left-0 right-0 w-28 h-28 md:w-40 md:h-40 mx-auto mr-8 md:mr-16">
+        <Image 
+          src="/ptichka.png" 
+          alt="" 
+          width={160} 
+          height={160} 
+          className="object-contain opacity-70"
+          priority
+        />
+      </div>
+
+      {/* Sarlavha */}
+      <div className="text-center mb-8 mt-4">
+        <h1 className="inline-block text-4xl md:text-5xl font-extrabold">
+          KURS
+          <span className="text-3xl md:text-4xl font-extrabold ml-1">DASTURI</span>
+        </h1>
+      </div>
+
+      {/* Modullar gridi */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto relative z-10 mb-12">
+        {modullar.map((nom, index) => (
+          <div key={index} className="bg-white rounded-lg p-4 flex flex-col items-center shadow-md h-full">
+            <div className="relative w-16 h-16 mb-3 flex items-center justify-center">
+              <Image
+                src={`/${18 + index}.png`}
+                alt={`Modul ${index + 1}`}
+                width={64}
+                height={64}
+                className="object-contain"
+              />
+            </div>
+            <div className="text-center flex-grow">
+              <h3 className="text-base font-bold mb-1">MODUL {index + 1}:</h3>
+              <p className="text-sm font-medium">{nom}</p>
+            </div>
+          </div>
+        ))}
+
+        {/* Bonus kartasi */}
+        <div className="bg-white rounded-lg p-4 flex flex-col items-center shadow-md h-full">
+          <div className="relative w-16 h-16 mb-3 flex items-center justify-center">
+            <Image
+              src="/28.png"
+              alt="Bonus material"
+              width={64}
+              height={64}
+              className="object-contain"
+            />
+          </div>
+          <div className="text-center flex-grow">
+            <h3 className="text-base font-bold mb-1">BONUS:</h3>
+            <p className="text-sm font-medium">KITOB, FILM VA PODKAST TAVSIYALARI</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default KursDasturi;
+"use client"
+
+import React from 'react';
+
+export default function Features() {
+  const features = [
+    {
+      title: "SOTUV KASBINI TO'LIQ TUSHUNTIRISH",
+    },
+    {
+      title: "SAVDO SOHASIDA ISH TOPISH BO'YICHA YO'RIQNOMA",
+    },
+    {
+      title: "SOTUV TEXNIKALARINI VA MIJOZLAR BILAN ISHLASH STRATEGIYALARINI O'RGATISH",
+    },
+    {
+      title: "SOTUV INSTRUMENTLARIDAN FOYDALANISHNI O'ZLASHTIRISHGA YORDAM BERISH",
+    },
+  ];
+
+  return (
+    <section id='kurs-vazifasi' className="py-16 relative">
+      
+      <div className="max-w-6xl mx-auto px-4 relative z-10">
+        <div className="text-center mb-12">
+          <div className="bg-black inline-block px-8 py-2 mb-8">
+            <h2 className="text-white text-4xl font-bold">KURS VAZIFASI:</h2>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {features.map((feature, index) => (
+            <div key={index} className="bg-white rounded-lg p-6 text-center shadow-md">
+              <h3 className="font-bold text-xl mb-2">{feature.title}</h3>
+            </div>
+          ))}
+        </div>
+        
+        <div className="flex justify-center mt-20">
+          <img src="/ptichka.png" alt="Checkmark" className="w-48 h-48" />
+        </div>
+      </div>
+    </section>
+  );
+}
+"use client"
+
+import { motion,AnimatePresence } from "framer-motion"
+import { useState } from "react";
+
+export default function Hero() {
+
+
+  return (
+    <section className="w-full overflow-hidden">
+      <div className="container relative md:p-20 min-h-screen z-10 md:min-h-[700px] flex items-center max-w-screen-xl mx-auto">
+        <div className="flex flex-col md:flex-row items-center justify-between w-full">
+          <motion.div
+            className="text-black w-full md:w-1/2 mb-8 md:mb-0"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h1 className="text-[4rem] md:text-[6rem] lg:text-[4rem] font-black leading-[0.9] mb-2">
+              CALL-MARKAZ
+            </h1>
+            <h1 className="text-[3.5rem] md:text-[5rem] lg:text-[6rem] font-black leading-[0.9] mb-4">
+              OPERATORI
+            </h1>
+            
+            <div className="bg-black inline-block px-4 py-2 mb-8 w-auto">
+              <h2 className="text-white font-black text-[2rem] md:text-[2.5rem] lg:text-[2.5rem] leading-tight m-0">
+                VA SOTUV MENEJERI
+              </h2>
+            </div>
+
+            <p className="text-lg md:text-xl mb-8 max-w-[600px]">
+              Savdo va mijozlar bilan ishlash bo'yicha muhim ko'nikmalarni tez va samarali o'rganing!
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+            <motion.a
+              href="https://t.me/sotuvkurs_bot"
+              target="_blank"
+              className="bg-gray-800 text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 transform  shadow-lg"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Bepul konsultatsiya olish
+            </motion.a>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="w-full md:w-1/2 relative"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            {/* Dollar bill background images */}
+            <div className="absolute -bottom-20 -left-20 z-0 opacity-60 rotate-12">
+              <img src="/dollor1.png" alt="Dollar 1" className="w-[200px] md:w-[300px]" />
+            </div>
+            <div className="absolute top-20 right-0 z-0 opacity-50 -rotate-12">
+              <img src="/dollor2.png" alt="Dollar 2" className="w-[200px] md:w-[300px]" />
+            </div>
+            
+            {/* Main person image */}
+            <img
+              src="/yaxshi.png"
+              alt="Professional sales person"
+              className="relative z-10 w-full object-contain"
+            />
+          </motion.div>
+        </div>
+      </div>
+      
+    </section>
+  )
+}
+"use client"
+
+import { motion } from "framer-motion"
+
+export default function Instructor() {
+  return (
+    <div id="muallif" className="container relative py-16 px-6 md:py-32 md:px-16 lg:px-32">
+      <div className="flex flex-col items-center justify-center min-h-[500px] md:min-h-[600px] text-center">
+        <div className="relative max-w-5xl w-full">
+          {/* Course Author Title */}
+          <div className="absolute top-0 right-1/4 z-10 max-w-xs">
+            <motion.div
+              className="bg-black text-white font-bold text-lg md:text-2xl px-4 py-2 md:px-6 md:py-3 transform -rotate-6"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              KURS MUALLIFI
+            </motion.div>
+          </div>
+
+          {/* Author Name */}
+          <motion.h1
+            className="text-4xl md:text-6xl lg:text-8xl font-black text-black mb-12 mt-12 md:mb-16 md:mt-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            BEKZOD KHANOV
+          </motion.h1>
+
+          {/* Credentials - 2 on top row */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6">
+            <motion.div
+              className="bg-white px-4 py-3 md:px-6 md:py-4 rounded-lg shadow-lg"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <h3 className="font-bold text-base md:text-lg">
+                3+ YILLIK SAVDO VA BIZNES AVTOMATLASHTIRISH BO'YICHA TAJRIBA.
+              </h3>
+            </motion.div>
+
+            <motion.div
+              className="bg-white px-4 py-3 md:px-6 md:py-4 rounded-lg shadow-lg"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <h3 className="font-bold text-base md:text-lg">
+                90+ REAL KEYS – KICHIK, O'RTA VA YIRIK BIZNESLAR BILAN ISHLASH TAJRIBASI.
+              </h3>
+            </motion.div>
+          </div>
+
+          {/* Credential - 1 on bottom row */}
+          <div className="flex justify-center mb-24 md:mb-52">
+            <motion.div
+              className="bg-white px-4 py-3 md:px-6 md:py-4 rounded-lg shadow-lg max-w-md md:max-w-xl w-full"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <h3 className="font-bold text-base md:text-lg">
+                ROSSIYA BOZORIDA YETUK SAVDO EKSPERTLARI TAJRIBASIDAN O'RGANGAN.
+              </h3>
+            </motion.div>
+          </div>
+
+          {/* Icons */}
+          <div className="absolute bottom-[-60px] left-0 md:left-[-40px] z-0">
+            <motion.img
+              src="/ptichka.png"
+              alt="Network diagram"
+              className="w-40 h-40 md:w-60 md:h-60 opacity-80"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 0.8, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            />
+          </div>
+
+          <div className="absolute bottom-[-60px] right-0 md:right-[-40px] z-0">
+            <motion.img
+              src="/angular.png"
+              alt="Checkmark"
+              className="w-40 h-40 md:w-60 md:h-60"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+"use client"
+
+import { motion } from "framer-motion"
+
+export default function WhoIsThisFor() {
+  const targetAudience = [
+    {
+      title: "SAVDO SOHASIDAGI BILIMLARINGIZNI OSHIRMOQCHI BO'LSANGIZ",
+      subtitle: "USHBU KURS SIZ UCHUN, AGAR SIZ:",
+      icon: "📈",
+      delay: 0.1,
+    },
+    {
+      title: "CALL-MARKAZ YOKI SAVDO SOHASIDA BOSHLAMOQCHI BO'LSANGIZ",
+      subtitle: "ISH QIDIRAYOTGAN BO'LSANGIZ:",
+      icon: "🔎",
+      delay: 0.2,
+    },
+    {
+      title: "LEKIN BU YO'NALISHDA RIVOJLANISHNI ISTASANGIZ",
+      subtitle: "MIJOZLAR BILAN ISHLASH TAJRIBANGIZ BO'LMASA",
+      icon: "🚀",
+      delay: 0.3,
+    },
+    {
+      title: "(MARKETOLOG, TARGETOLOG, SAYT YARATUVCHILAR VA BOSHQALAR)",
+      subtitle: "FREELANCER SIFATIDA O'Z XIZMATLARINGIZNI SOTISHNI XOHLASANGIZ",
+      icon: "💼",
+      delay: 0.4,
+    },
+  ]
+
+  return (
+    <section id="kim-uchun" className="min-h-screen w-full py-8 sm:py-12 px-4">
+      <div className="max-w-6xl mx-auto py-16">
+        <div className="text-center mb-8 sm:mb-12">
+          <motion.div
+            className="inline-block transform -rotate-6"
+            initial={{ opacity: 0, rotate: -12 }}
+            whileInView={{ opacity: 1, rotate: -6 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-black text-white px-6 py-3 inline-block">
+              KURS KIMLAR UCHUN?
+            </h2>
+          </motion.div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          {targetAudience.map((item, index) => (
+            <motion.div
+              key={index}
+              className="bg-white p-4 sm:p-6 rounded-lg shadow-md"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: item.delay }}
+            >
+              <div className="flex items-start mb-3 sm:mb-4">
+                <div className="text-2xl sm:text-3xl mr-3 sm:mr-4">{item.icon}</div>
+                <div className="bg-black px-3 sm:px-4 py-1 sm:py-2 rounded">
+                  <h3 className="text-white font-bold text-xs sm:text-sm md:text-base">
+                    {item.subtitle}
+                  </h3>
+                </div>
+              </div>
+              <p className="text-sm sm:text-base md:text-lg font-bold">
+                {item.title}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="relative mt-8 sm:mt-12">
+          {/* Add your sticker-growth element here if needed */}
+        </div>
+      </div>
+    </section>
+  )
+}
+"use client"
+
+import { motion } from "framer-motion"
+import Image from "next/image"
+import { useEffect, useState } from "react"
+
+export default function KursdanKeyin() {
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  useEffect(() => {
+    setIsLoaded(true)
+  }, [])
+
+  const benefits = [
+    {
+      icon: "/ustozcha.png",
+      title: "SOTUVCHILIK KASBI VA KELAJAGI HAQIDA TO'LIQ TUSHUNCHA",
+    },
+    {
+      icon: "/odamchalar.png",
+      title: "SAMARALI SOTUV TEXNIKALARI VA MIJOZLAR BILAN TO'G'RI ISHLASH KO'NIKMALARI",
+    },
+    {
+      icon: "/crm.png",
+      title: "SOTUV INSTRUMENTLARI, CRM TIZIMLARI, SCRIPTLAR BILASH ISHLASH KO'NIKMALARI",
+    },
+    {
+      icon: "/resumee.png",
+      title: "ISH TOPISH VA ISHGA KIRISH BO'YICHA YO'RIQNOMA",
+    },
+    {
+      icon: "/odamcha.png",
+      title: "SOTUV SOHASIDA QAYERGA, QANDAY RIVOJLANISH BO'YICHA TUSHUNCHAGA EGA BO'LASIZ",
+    },
+  ]
+
+  return (
+    <div className="min-h-screen w-full relative overflow-hidden">
+
+      {/* Background elements - optimized */}
+      <div className="absolute inset-0 overflow-hidden opacity-20 z-0">
+        {/* Left side element - smaller and positioned better */}
+        <div className="absolute top-1/4 left-0 w-[400px] h-[400px]">
+          <Image 
+            src="/resume.png" 
+            alt="Decorative element" 
+            fill 
+            className="object-contain object-left" 
+            priority 
+          />
+        </div>
+
+        {/* Right side element - smaller and positioned better */}
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px]">
+          <Image
+            src="/resume.png"
+            alt="Decorative element"
+            fill
+            className="object-contain object-right-bottom"
+          />
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 py-12 md:py-16 relative z-10">
+        {/* Title */}
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-4xl md:text-6xl font-black text-center mb-12 md:mb-16"
+        >
+          KURSDAN KEYIN:
+        </motion.h1>
+
+        {/* Benefits Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          {benefits.slice(0, 4).map((benefit, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+              transition={{
+                duration: 0.5,
+                delay: 0.2 + index * 0.1,
+              }}
+              className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center text-center h-full"
+            >
+              <div className="relative w-14 h-14 mb-4">
+                <Image
+                  src={benefit.icon || "/placeholder.svg"}
+                  alt={benefit.title}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <h3 className="text-base md:text-lg font-bold">{benefit.title}</h3>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Last benefit */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="mt-8 max-w-3xl mx-auto"
+        >
+          <div className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center text-center">
+            <div className="relative w-14 h-14 mb-4">
+              <Image
+                src={benefits[4].icon || "/placeholder.svg"}
+                alt={benefits[4].title}
+                fill
+                className="object-contain"
+              />
+            </div>
+            <h3 className="text-base md:text-lg font-bold">{benefits[4].title}</h3>
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  )
+}
+"use client"
+
+import { motion } from "framer-motion";
+
+export default function WhyThisCourse() {
+  return (
+    <section
+      id="why"
+      className="section py-20 relative "
+    >
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-6xl font-black leading-tight uppercase">
+            <div>NIMA UCHUN BU</div>
+            <div className="bg-black text-white inline-block px-6 md:px-8 py-3 md:py-4 text-3xl md:text-5xl rounded-lg">
+              KURS MUHIM?
+            </div>
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-xl p-6 md:p-10 text-center text-xl md:text-2xl font-bold">
+            <p>
+              80% ISH BERUVCHILAR TAJRIBASIZ NOMZODLARNI QABUL QILISHGA TAYYOR,
+              LEKIN ULARNING TAYYOR MUTAXASSIS BO'LISHINI ISTAYDI.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-2xl shadow-xl p-6 md:p-10 text-center text-xl md:text-2xl font-bold">
+            <p>
+              90% NOMZODLAR MIJOZLAR BILAN ISHLASH BO'YICHA NOTO'G'RI
+              YONDASHUV TUFAYLI ISHNI YO'QOTADI.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-8 md:mt-12 max-w-5xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-xl p-6 md:p-10 text-center text-xl md:text-2xl font-bold">
+            <p>
+              SAVDO SOHASI ENG TALABGIR YO'NALISHLARDAN BIRI BO'LIB,
+              MUTAXASSISLARNING DAROMADI YUQORI.
+            </p>
+          </div>
+        </div>
+
+        {/* Green icon in the bottom left corner */}
+        <div className="absolute bottom-5 left-0 hidden sm:block">
+          <img src="/ptichka.png" alt="Green icon" className="w-36 md:w-72 h-36 md:h-72" />
+        </div>
+
+        {/* Black angular shape in the bottom right corner */}
+        <div className="absolute bottom-5 right-0 hidden sm:block">
+          <img src="/angular.png" alt="Angular shape" className="w-48 md:w-96 h-48 md:h-96" />
+        </div>
+      </div>
+    </section>
+  );
+}
+"use client"
+import { useEffect, useState } from "react"
+import { motion } from "framer-motion"
+import Image from "next/image"
+
+export default function SotuvMutaxassis() {
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  useEffect(() => {
+    setIsLoaded(true)
+  }, [])
+
+  return (
+    <div className="min-h-screen w-full relative overflow-hidden py-12 md:py-16">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="container mx-auto px-6 sm:px-12 relative z-10"
+      >
+        {/* Title - larger and more prominent */}
+        <motion.div
+          className="flex justify-center mb-8"
+          initial={{ y: -20 }}
+          animate={isLoaded ? { y: 0 } : {}}
+          transition={{ duration: 0.3 }}
+        >
+          <h1 className="text-5xl md:text-6xl font-bold text-center text-gray-900">
+            SOTUV BO'YICHA MUTAXASSIS
+          </h1>
+        </motion.div>
+
+        {/* Price - much more prominent */}
+        <motion.div
+          className="flex flex-col items-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.3, delay: 0.1 }}
+        >
+          <h2 className="text-7xl md:text-8xl font-black text-gray-900 mb-2">1.399.000</h2>
+          <div className="bg-black px-6 py-2 rounded-full">
+            <h3 className="text-2xl md:text-3xl font-bold text-white">PRO TARIFI</h3>
+          </div>
+        </motion.div>
+
+        {/* Features - larger text and spacing */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {/* Left column */}
+          <motion.div
+            className="space-y-5"
+            initial={{ opacity: 0 }}
+            animate={isLoaded ? { opacity: 1 } : {}}
+            transition={{ duration: 0.3, delay: 0.2 }}
+          >
+            {[
+              '"BIRINCHI QADAM" TARIFIDAN BARCHASI',
+              '"ISHGA TAYYOR" TARIFIDAN BARCHA MAVZULAR',
+              'REZYUME TAYYORLASH',
+              'ISH TOPISH YO\'RIQNOMASI (QAYERDAN QANDAY QILIB)',
+              'MODULLAR SONI 8 TA',
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                className="flex items-start"
+                initial={{ x: -20 }}
+                animate={isLoaded ? { x: 0 } : {}}
+                transition={{ duration: 0.3, delay: 0.2 + index * 0.05 }}
+              >
+                <div className="bg-black text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 mt-1 flex-shrink-0 text-lg">
+                  {index + 1}
+                </div>
+                <p className="text-xl font-medium text-gray-800">{item}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Right column */}
+          <motion.div
+            className="space-y-5"
+            initial={{ opacity: 0 }}
+            animate={isLoaded ? { opacity: 1 } : {}}
+            transition={{ duration: 0.3, delay: 0.3 }}
+          >
+            {[
+              '29+ VIDEO DARSLIKLAR',
+              'SHAXSIY RIVOJLANISH VA KARYERADA O\'SISH BO\'YICHA MASLAHATLAR',
+              'VIP YOPIQ TELEGRAM GURUH (FAQAT PRO TARIFI O\'QUVCHILAR UCHUN)',
+            ].map((item, index) => (
+              <motion.div
+                key={index + 5}
+                className="flex items-start"
+                initial={{ x: -20 }}
+                animate={isLoaded ? { x: 0 } : {}}
+                transition={{ duration: 0.3, delay: 0.3 + index * 0.05 }}
+              >
+                <div className="bg-black text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 mt-1 flex-shrink-0 text-lg">
+                  {index + 6}
+                </div>
+                <p className="text-xl font-medium text-gray-800">{item}</p>
+              </motion.div>
+            ))}
+
+            {/* Bonus module - larger */}
+            <motion.div
+              className="mt-12 flex justify-center"
+              initial={{ scale: 0.9 }}
+              animate={isLoaded ? { scale: 1 } : {}}
+              transition={{ duration: 0.3, delay: 0.4 }}
+            >
+              <div className="relative w-full h-60 md:h-64">
+                <Image
+                  src="/bonus.png"
+                  alt="Bonus modul"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </motion.div>
+    </div>
+  )
+}
+"use client"
+import Image from "next/image"
+import { useEffect, useState } from "react"
+import { motion } from "framer-motion"
+
+export default function TarifRejalari() {
+    const [isLoaded, setIsLoaded] = useState(false)
+  
+    useEffect(() => {
+      setIsLoaded(true)
+    }, [])
+  
+    return (
+      <div id="narx" className="min-h-screen relative overflow-hidden py-16 md:py-16">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="container mx-auto px-6 relative z-10"
+        >
+          {/* Title - made more compact */}
+          <div className="flex justify-center mb-12 md:mb-16 relative z-20">
+            <div className="border-4 border-black px-6 py-1">
+              <h1 className="text-3xl md:text-4xl font-black text-center">TARIF REJALARI</h1>
+            </div>
+          </div>
+  
+          {/* Pricing columns - optimized spacing */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 max-w-5xl mx-auto relative z-20">
+            {/* First column */}
+            <motion.div
+              className="flex flex-col"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="border-2 border-black px-3 py-1 inline-block mb-4">
+                <h2 className="text-xl md:text-2xl font-black">BIRINCHI QADAM</h2>
+              </div>
+              <h3 className="text-5xl md:text-6xl font-black mb-8">699.000</h3>
+  
+              <div className="space-y-4">
+                {[ 
+                  "SAVDO SOHASIGA KIRISH", 
+                  "ASOSIY MULOQOT KO'NIKMALARI", 
+                  "MIJOZ PSIXOLOGIYASI", 
+                  "SOTUV TERMINOLOGIYASI", 
+                  "YOPIQ TELEGRAM GURUHGA KIRISH", 
+                  "MODULLAR SONI 4 TA", 
+                  "16+ VIDEO DARSLIKLAR" 
+                ].map((item, index) => (
+                  <div className="flex items-start" key={index}>
+                    <div className="relative flex-shrink-0 w-10 h-10 mr-3">
+                      <div className="absolute inset-0 bg-black rounded-full flex items-center justify-center text-white font-bold text-lg">
+                        {index + 1}
+                      </div>
+                    </div>
+                    <p className="font-bold text-base md:text-lg mt-2">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+  
+            {/* Second column */}
+            <motion.div
+              className="flex flex-col"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <div className="border-2 border-black px-3 py-1 inline-block mb-4">
+                <h2 className="text-xl md:text-2xl font-black">ISHGA TAYYOR (TAVSIYA ETILGAN)</h2>
+              </div>
+              <h3 className="text-5xl md:text-6xl font-black mb-8">899.000</h3>
+  
+              <div className="space-y-4">
+                {[
+                  'BIRINCHI QADAM" TARIFIDAN BARCHA MAVZULAR',
+                  "MIJOZ QARSHILIKLARI BILAN ISHLASH",
+                  "CRM VA IP TELEFONIYA TIZIMLARIDA ISHLASH",
+                  "ASOSIY SCRIPT TUZISH TEXNIKALARI, SCRIPTLAR BILAN ISHLASH",
+                  "MODULLAR SONI 6 TA",
+                  "21+ VIDEO DARSLIK"
+                ].map((item, index) => (
+                  <div className="flex items-start" key={index}>
+                    <div className="relative flex-shrink-0 w-10 h-10 mr-3">
+                      <div className="absolute inset-0 bg-black rounded-full flex items-center justify-center text-white font-bold text-lg">
+                        {index + 1}
+                      </div>
+                    </div>
+                    <p className="font-bold text-base md:text-lg mt-2">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+  
+        {/* Background Money Icon - smaller and less intrusive */}
+        <div className="absolute bottom-4 right-4 w-[120px] h-[120px] md:w-[150px] md:h-[150px] opacity-30 z-0">
+          <Image src="/ptichka.png" alt="Money icons" fill className="object-contain" priority />
+        </div>
+      </div>
+    )
+}
+"use client"
+
+import { useState, useEffect } from "react"
+import Link from "next/link"
+import { motion } from "framer-motion"
+import { Menu, X } from "lucide-react"
+import Hero from "@/components/hero"
+import Features from "@/components/features"
+import WhyThisCourse from "@/components/nima-uchun"
+import WhoIsThisFor from "@/components/kim-uchun"
+import CourseModules from "@/components/course-module"
+import Instructor from "@/components/instructor"
+import CallToAction from "@/components/call-to"
+import Footer from "@/components/footer"
+import BookLanding from "@/components/aynan-men"
+import KursdanKeyin from "@/components/kursdan_keyin"
+import SotuvMutaxassis from "@/components/sotuv-mutaxasisi"
+import TarifRejalari from "@/components/tariflar"
+import Bonuslar from "@/components/bonus"
+export default function LandingPage() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState("hero")
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["hero", "features", "why", "who", "modules", "instructor", "pricing"]
+
+      for (const section of sections) {
+        const element = document.getElementById(section)
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            setActiveSection(section)
+            break
+          }
+        }
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+    setIsMenuOpen(false)
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
+      <header className="sticky top-0 z-40 w-full bg-black backdrop-blur-sm">
+        <div className="container flex h-16 items-center justify-between py-4 px-4">
+          <div className="flex items-center gap-2">
+            <span className="text-lg sm:text-xl font-bold text-white">BEKZOD | KHANOV</span>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-white bg-transparent p-2 rounded-md"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-4 lg:gap-6">
+            <Link
+              href="#kurs-vazifasi"
+              onClick={() => scrollToSection("kurs-vazifasi")}
+              className={`text-xs lg:text-sm font-medium text-white hover:text-slate-600 ${activeSection === "features" ? " hover:text-slate-600" : ""}`}
+            >
+              KURS VAZIFASI
+            </Link>
+            <Link
+              href="#kim-uchun"
+              onClick={() => scrollToSection("kim-uchun")}
+              className={`text-xs lg:text-sm font-medium text-white  hover:text-slate-600 ${activeSection === "who" ? " hover:text-slate-600" : ""}`}
+            >
+              KURS KIMLAR UCHUN
+            </Link>
+            <Link
+              href="#kurs-dasturi"
+              onClick={() => scrollToSection("kurs-dasturi")}
+              className={`text-xs lg:text-sm font-medium text-white  hover:text-slate-600 ${activeSection === "modules" ? " hover:text-slate-600" : ""}`}
+            >
+              KURS DASTURI
+            </Link>
+            <Link
+              href="#muallif"
+              onClick={() => scrollToSection("muallif")}
+              className={`text-xs lg:text-sm font-medium text-white  hover:text-slate-600 ${activeSection === "instructor" ? " hover:text-slate-600" : ""}`}
+            >
+              KURS MUALLIFI
+            </Link>
+            <Link
+              href="#narx"
+              onClick={() => scrollToSection("narx")}
+              className={`text-xs lg:text-sm font-medium text-white  hover:text-slate-600 ${activeSection === "pricing" ? " hover:text-slate-600" : ""}`}
+            >
+              NARXLAR
+            </Link>
+          </nav>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <motion.div
+            className="md:hidden absolute w-full bg-black border-b border-neutral-700"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+          >
+            <div className="container py-4 flex flex-col space-y-4">
+              <Link
+                href="#kurs-vazifasi"
+                onClick={() => scrollToSection("kurs-vazifasi")}
+                className="text-sm font-medium py-2 text-white hover:text-green-400"
+              >
+                KURS VAZIFASI
+              </Link>
+
+              <Link
+                href="#kim-uchun"
+                onClick={() => scrollToSection("kim-uchun")}
+                className="text-sm font-medium py-2 text-white hover:text-green-400"
+              >
+                KURS KIMLAR UCHUN
+              </Link>
+              <Link
+                href="#kurs-dasturi"
+                onClick={() => scrollToSection("kurs-dasturi")}
+                className="text-sm font-medium py-2 text-white hover:text-green-400"
+              >
+                KURS DASTURI
+              </Link>
+              <Link
+                href="#muallif"
+                onClick={() => scrollToSection("muallif")}
+                className="text-sm font-medium py-2 text-white hover:text-green-400"
+              >
+                KURS MUALLIFI
+              </Link>
+              <Link
+                href="#narx"
+                onClick={() => scrollToSection("narx")}
+                className="text-sm font-medium py-2 text-white hover:text-green-400"
+              >
+                NARXLAR
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </header>
+
+      <div
+        className="min-h-screen"
+        style={{
+          backgroundImage: "url('/background.png')",
+          backgroundSize: "cover",
+          backgroundAttachment: "fixed",
+          backgroundPosition: "center",
+        }}
+      >
+        <main>
+
+            <Hero />
+          
+          <Features />
+          
+          <WhyThisCourse />
+      
+          <BookLanding />
+          <WhoIsThisFor />
+          <KursdanKeyin />
+          <CourseModules />
+          <Instructor />
+          <TarifRejalari />
+          <SotuvMutaxassis />
+          <Bonuslar/>
+          <CallToAction />
+      
+        </main>
+        <Footer />
+      </div>
+    </div>
+  )
+}
+aytganimdek qilib ber
