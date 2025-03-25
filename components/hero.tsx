@@ -54,15 +54,15 @@ export default function Hero() {
           >
             {/* Dollar bill background images */}
             <div className="absolute -bottom-20 -left-20 z-0 opacity-60 rotate-12">
-              <img src="/dollor1.png" alt="Dollar 1" className="w-[200px] md:w-[300px]" />
+              <img src="/dollor1.webp" alt="Dollar 1" className="w-[200px] md:w-[300px]" />
             </div>
             <div className="absolute top-20 right-0 z-0 opacity-50 -rotate-12">
-              <img src="/dollor2.png" alt="Dollar 2" className="w-[200px] md:w-[300px]" />
+              <img src="/dollor2.webp" alt="Dollar 2" className="w-[200px] md:w-[300px]" />
             </div>
             
             {/* Main person image */}
             <img
-              src="/yaxshi.png"
+              src="/yaxshi.webp"
               alt="Professional sales person"
               className="relative z-10 w-full object-contain"
             />

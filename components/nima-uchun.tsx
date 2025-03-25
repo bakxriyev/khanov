@@ -45,12 +45,12 @@ export default function WhyThisCourse() {
 
         {/* Green icon in the bottom left corner */}
         <div className="absolute bottom-5 left-0 hidden sm:block">
-          <img src="/ptichka.png" alt="Green icon" className="w-36 md:w-72 h-36 md:h-72" />
+          <img src="/ptichka.webp" alt="Green icon" className="w-36 md:w-72 h-36 md:h-72" />
         </div>
 
         {/* Black angular shape in the bottom right corner */}
         <div className="absolute bottom-5 right-0 hidden sm:block">
-          <img src="/angular.png" alt="Angular shape" className="w-48 md:w-96 h-48 md:h-96" />
+          <img src="/angular.webp" alt="Angular shape" className="w-48 md:w-96 h-48 md:h-96" />
         </div>
       </div>
     </section>

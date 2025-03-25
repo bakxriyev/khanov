@@ -108,7 +108,7 @@ export default function SotuvMutaxassis() {
             >
               <div className="relative w-full h-60 md:h-64">
                 <Image
-                  src="/bonus.png"
+                  src="/bonus.webp"
                   alt="Bonus modul"
                   fill
                   className="object-contain"

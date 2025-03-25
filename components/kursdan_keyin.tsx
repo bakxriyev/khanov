@@ -13,23 +13,23 @@ export default function KursdanKeyin() {
 
   const benefits = [
     {
-      icon: "/ustozcha.png",
+      icon: "/ustozcha.webp",
       title: "SOTUVCHILIK KASBI VA KELAJAGI HAQIDA TO'LIQ TUSHUNCHA",
     },
     {
-      icon: "/odamchalar.png",
+      icon: "/odamchalar.webp",
       title: "SAMARALI SOTUV TEXNIKALARI VA MIJOZLAR BILAN TO'G'RI ISHLASH KO'NIKMALARI",
     },
     {
-      icon: "/crm.png",
+      icon: "/crm.webp",
       title: "SOTUV INSTRUMENTLARI, CRM TIZIMLARI, SCRIPTLAR BILASH ISHLASH KO'NIKMALARI",
     },
     {
-      icon: "/resumee.png",
+      icon: "/resumee.webp",
       title: "ISH TOPISH VA ISHGA KIRISH BO'YICHA YO'RIQNOMA",
     },
     {
-      icon: "/odamcha.png",
+      icon: "/odamcha.webp",
       title: "SOTUV SOHASIDA QAYERGA, QANDAY RIVOJLANISH BO'YICHA TUSHUNCHAGA EGA BO'LASIZ",
     },
   ]
@@ -42,7 +42,7 @@ export default function KursdanKeyin() {
         {/* Left side element - smaller and positioned better */}
         <div className="absolute top-1/4 left-0 w-[400px] h-[400px]">
           <Image 
-            src="/resume.png" 
+            src="/resume.webp" 
             alt="Decorative element" 
             fill 
             className="object-contain object-left" 
@@ -53,7 +53,7 @@ export default function KursdanKeyin() {
         {/* Right side element - smaller and positioned better */}
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px]">
           <Image
-            src="/resume.png"
+            src="/resume.webp"
             alt="Decorative element"
             fill
             className="object-contain object-right-bottom"

@@ -181,7 +181,7 @@ export default function LandingPage() {
       <div
         className="min-h-screen"
         style={{
-          backgroundImage: "url('/background.png')",
+          backgroundImage: "url('/background.webp')",
           backgroundSize: "cover",
           backgroundAttachment: "fixed",
           backgroundPosition: "center",

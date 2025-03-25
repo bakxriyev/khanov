@@ -37,7 +37,7 @@ export default function Features() {
         </div>
         
         <div className="flex justify-center mt-20">
-          <img src="/ptichka.png" alt="Checkmark" className="w-48 h-48" />
+          <img src="/ptichka.webp" alt="Checkmark" className="w-48 h-48" />
         </div>
       </div>
     </section>

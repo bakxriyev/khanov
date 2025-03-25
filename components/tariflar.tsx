@@ -97,7 +97,7 @@ export default function TarifRejalari() {
   
         {/* Background Money Icon - smaller and less intrusive */}
         <div className="absolute bottom-4 right-4 w-[120px] h-[120px] md:w-[150px] md:h-[150px] opacity-30 z-0">
-          <Image src="/ptichka.png" alt="Money icons" fill className="object-contain" priority />
+          <Image src="/ptichka.webp" alt="Money icons" fill className="object-contain" priority />
         </div>
       </div>
     )

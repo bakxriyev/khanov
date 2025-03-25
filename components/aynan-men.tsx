@@ -21,11 +21,11 @@ export default function BookLanding() {
       title: "ODDIY VA TUSHUNARLI YONDASHIV – MURAKKAB NARSALARNI SODDA TUSHUNTIRAMAN.",
     },
     {
-      icon: "/aniq.png",
+      icon: "/aniq.webp",
       title: "SOTIV BO'YICHA ASOSIY KO'NIKMALARGA EGA BO'LASIZ QAYERGA QANDAY RIVOJLANISHNI BILIB OLASIZ",
     },
     {
-      icon: "/daftarcha.png",
+      icon: "/daftarcha.webp",
       title: "SIZ KURS YAKUNIDA ISHGA KIRISH UCHUN YO'RIQNOMAGA EGA BO'LASIZ!",
     },
   ];
@@ -35,7 +35,7 @@ export default function BookLanding() {
       {/* Background element - absolutely positioned at top */}
       <div className="absolute left-0 top-0 h-full w-72 sm:w-[400px] md:w-[600px] opacity-50 sm:opacity-100">
         <Image 
-          src="/lampochka.png" 
+          src="/lampochka.webp" 
           alt="Background gear" 
           fill 
           className="object-contain object-left" 
@@ -58,7 +58,7 @@ export default function BookLanding() {
             className="relative w-56 h-72 sm:w-72 sm:h-96 md:w-[350px] md:h-[450px] mb-6 sm:mb-8"
           >
             <Image 
-              src="/kitob.jpg" 
+              src="/kitob.webp" 
               alt="NIMA UCHUN AYNAN MEN?" 
               fill 
               className="object-contain" 

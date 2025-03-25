@@ -76,7 +76,7 @@ export default function Instructor() {
           {/* Icons */}
           <div className="absolute bottom-[-60px] left-0 md:left-[-40px] z-0">
             <motion.img
-              src="/ptichka.png"
+              src="/ptichka.webp"
               alt="Network diagram"
               className="w-40 h-40 md:w-60 md:h-60 opacity-80"
               initial={{ opacity: 0, x: -50 }}
@@ -88,7 +88,7 @@ export default function Instructor() {
 
           <div className="absolute bottom-[-60px] right-0 md:right-[-40px] z-0">
             <motion.img
-              src="/angular.png"
+              src="/angular.webp"
               alt="Checkmark"
               className="w-40 h-40 md:w-60 md:h-60"
               initial={{ opacity: 0, x: 50 }}

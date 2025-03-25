@@ -10,7 +10,7 @@ export default function Bonuslar() {
       <div className="relative w-full max-w-5xl flex flex-col items-center gap-6">
         {/* Chap tomondagi sovg'a rasmi */}
         <div className="absolute -left-32 bottom-10 hidden lg:block">
-          <Image src="/sovga.png" alt="Gift Left" width={400} height={400} />
+          <Image src="/sovga.webp" alt="Gift Left" width={400} height={400} />
         </div>
 
         {/* Bonuslar ro'yxati */}
@@ -34,7 +34,7 @@ export default function Bonuslar() {
 
         {/* O'ng tomondagi sovg'a rasmi */}
         <div className="absolute -right-32 top-10 hidden lg:block">
-          <Image src="/sovga.png" alt="Gift Right" width={400} height={400} />
+          <Image src="/sovga.webp" alt="Gift Right" width={400} height={400} />
         </div>
       </div>
       

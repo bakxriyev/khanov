@@ -19,7 +19,7 @@ const KursDasturi = () => {
       {/* Chap tomondagi fon elementi (chap o'rtada) */}
       <div className="absolute bottom-8  left-0 right-0 w-24 h-24 md:w-32 md:h-32 mx-auto ml-8 md:ml-16 rounded-2xl">
         <Image 
-          src="/ptichka.png" 
+          src="/ptichka.webp" 
           alt="" 
           width={128} 
           height={128} 
@@ -31,7 +31,7 @@ const KursDasturi = () => {
       {/* O'ng tomondagi fon elementi (o'ng o'rtada) */}
       <div className="absolute bottom-8 left-0 right-0 w-28 h-28 md:w-40 md:h-40 mx-auto mr-8 md:mr-16">
         <Image 
-          src="/ptichka.png" 
+          src="/ptichka.webp" 
           alt="" 
           width={160} 
           height={160} 
@@ -54,7 +54,7 @@ const KursDasturi = () => {
           <div key={index} className="bg-white rounded-lg p-4 flex flex-col items-center shadow-md h-full">
             <div className="relative w-16 h-16 mb-3 flex items-center justify-center">
               <Image
-                src={`/${18 + index}.png`}
+                src={`/${18 + index}.webp`}
                 alt={`Modul ${index + 1}`}
                 width={64}
                 height={64}
@@ -72,7 +72,7 @@ const KursDasturi = () => {
         <div className="bg-white rounded-lg p-4 flex flex-col items-center shadow-md h-full">
           <div className="relative w-16 h-16 mb-3 flex items-center justify-center">
             <Image
-              src="/28.png"
+              src="/28.webp"
               alt="Bonus material"
               width={64}
               height={64}
