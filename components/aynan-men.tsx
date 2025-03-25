@@ -13,11 +13,11 @@ export default function BookLanding() {
 
   const features = [
     {
-      icon: "/realtajriba.png",
+      icon: "/realtajriba.webp",
       title: "REAL TAJRIBALAR ASOSIDA TA'LIM.",
     },
     {
-      icon: "/kere.png",
+      icon: "/kere.webp",
       title: "ODDIY VA TUSHUNARLI YONDASHIV – MURAKKAB NARSALARNI SODDA TUSHUNTIRAMAN.",
     },
     {
