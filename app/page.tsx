@@ -68,10 +68,9 @@ export default function LandingPage() {
   }
 
   return (
-    <div className="min-h-screen ">
-      {/* To'liq navbar kodi qaytarildi */}
-      <header className="sticky top-0 z-40 w-full bg-black backdrop-blur-sm">
-  <nav className="container mx-auto px-4 py-4 flex justify-between items-center"> {/* Increased py-3 to py-4 */}
+  <div className="min-h-screen ">
+  <header className="top-0 z-40 w-full bg-black backdrop-blur-sm">
+  <nav className="container mx-auto px-12 py-4 flex justify-between items-center"> {/* Increased py-3 to py-4 */}
     <div className="text-white font-bold text-2xl">BEKZOD | KHANOV</div> {/* Increased text-xl to text-2xl */}
     
     {isMobile ? (
@@ -84,7 +83,7 @@ export default function LandingPage() {
         </svg>
       </button>
     ) : (
-      <div className="hidden md:flex space-x-8"> {/* Increased space-x-6 to space-x-8 */}
+      <div className="hidden md:flex space-x-6"> {/* Increased space-x-6 to space-x-8 */}
         <button
           onClick={() => scrollToSection("kurs-vazifasi")}
           className={`text-white hover:text-green-400 text-lg ${ /* Added text-lg */
@@ -123,11 +122,13 @@ export default function LandingPage() {
             activeSection === "narx" ? "text-green-400 font-semibold" : ""
           }`}
         >
-          NARXLAR
+          TARIFLAR
         </button>
+        
       </div>
     )}
   </nav>
+  <header/>
 
   {/* Mobile menu - also made larger */}
   {isMobile && isMenuOpen && (
@@ -171,8 +172,9 @@ export default function LandingPage() {
             activeSection === "narx" ? "text-green-400 font-semibold" : ""
           }`}
         >
-          NARXLAR
+          TARIFLAR
         </button>
+        
       </div>
     </div>
   )}

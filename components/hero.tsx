@@ -41,7 +41,7 @@ export default function Hero() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Bepul konsultatsiya olish
+              KURS HARIDI
             </motion.a>
             </div>
           </motion.div>

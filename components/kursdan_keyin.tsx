@@ -21,7 +21,7 @@ export default function KursdanKeyin() {
       title: "SAMARALI SOTUV TEXNIKALARI VA MIJOZLAR BILAN TO'G'RI ISHLASH KO'NIKMALARI",
     },
     {
-      icon: "/crm.webp",
+      icon: "/crm.png",
       title: "SOTUV INSTRUMENTLARI, CRM TIZIMLARI, SCRIPTLAR BILASH ISHLASH KO'NIKMALARI",
     },
     {

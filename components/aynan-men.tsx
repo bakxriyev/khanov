@@ -18,11 +18,11 @@ export default function BookLanding() {
     },
     {
       icon: "/kere.webp",
-      title: "ODDIY VA TUSHUNARLI YONDASHIV – MURAKKAB NARSALARNI SODDA TUSHUNTIRAMAN.",
+      title: "ODDIY VA TUSHUNARLI YONDASHUV – MURAKKAB NARSALARNI SODDA TUSHUNTIRAMAN.",
     },
     {
       icon: "/aniq.webp",
-      title: "SOTIV BO'YICHA ASOSIY KO'NIKMALARGA EGA BO'LASIZ QAYERGA QANDAY RIVOJLANISHNI BILIB OLASIZ",
+      title: "SOTUV BO'YICHA ASOSIY KO'NIKMALARGA EGA BO'LASIZ QAYERGA QANDAY RIVOJLANISHNI BILIB OLASIZ",
     },
     {
       icon: "/daftarcha.webp",
