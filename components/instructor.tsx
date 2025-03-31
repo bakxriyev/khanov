@@ -48,7 +48,7 @@ export default function Instructor() {
             <div className="absolute bottom-4 left-4 right-4 p-4 bg-black/70 rounded-lg">
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white">BEKZOD KHANOV</h2>
               <p className="text-sm sm:text-base md:text-lg text-white font-medium">
-                CALL-MARKAZ OPERATORI VA SOTUV MENEJERI
+              SOTUV VA AVTOMATIZATSIYA BO`YICHA MENEJER
               </p>
             </div>
           </motion.div>

@@ -82,7 +82,8 @@ export default function LandingPage() {
           backgroundPosition: "center",
         }}
       >
-        <main className={isMobile ? "" : "snap-y snap-mandatory h-screen overflow-y-scroll"}>
+        {/* Modified main container - removed snap scrolling for better visibility */}
+        <main className="pb-16">
           {[
             { id: "hero", Component: Hero },
             { id: "kurs-vazifasi", Component: Features },
@@ -104,9 +105,9 @@ export default function LandingPage() {
               ref={(el) => {
                 if (sectionRefs.current) sectionRefs.current[index] = el
               }}
-              className={isMobile ? "" : "h-screen snap-center"}
+              className="py-20" // Increased padding for more space
             >
-              <Suspense fallback={<div className="h-screen flex items-center justify-center">Loading...</div>}>
+              <Suspense fallback={<div className="flex items-center justify-center h-[50vh]">Loading...</div>}>
                 <Component />
               </Suspense>
             </section>
@@ -116,6 +117,8 @@ export default function LandingPage() {
 
       {/* Persistent video player */}
       <VideoPlayer />
+
+      <Footer />
     </div>
   )
 }
